@@ -1,9 +1,12 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import process from 'process';
+
+require('dotenv').config();
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAbTM_Wpu4w7XZTuCooW93qf1wTMLBA5qA",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "iwebplantillaparcial.firebaseapp.com",
   projectId: "iwebplantillaparcial",
   storageBucket: "iwebplantillaparcial.firebasestorage.app",
