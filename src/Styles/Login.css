@@ -1,0 +1,67 @@
+.header {
+    display: flex;
+    justify-content: space-between; /* Push .user to the right */
+    align-items: flex-start;  /* Align .user to the top */
+    padding: 5px;            /* Optional: Add some space around the edges */
+    background-color: lightgray;
+    padding-bottom: 15px;
+
+  }
+
+.header h1 {
+    margin-left: 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    align-self: center;
+}
+
+.user {
+    display: flex;           /* Enable Flexbox */
+    flex-direction: column;  /* Arrange items in a column */
+    align-items: center;     /* Center items horizontally in the column */
+    text-align: center;      /* Center the text inside each item */
+    margin-right: 20px;
+  }
+
+  .user h2 {
+    font-size: small;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+  .user img {
+    width: 50px;             /* Set image size */
+    height: 50px;
+    border-radius: 50%;      /* Make the image circular */
+    margin-bottom: 8px;
+  }
+
+  .user button {
+    padding: 8px 12px;       /* Add button padding */
+    background-color: #008423;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+  }
+
+  .user button:hover {
+    background-color: #0056b3; /* Change button color on hover */
+  }
+
+.login {
+    display: flex;           /* Enable Flexbox */
+    flex-direction: column;  /* Arrange items in a column */
+    align-items: center;     /* Center items horizontally in the column */
+    text-align: center;      /* Center the text inside each item */
+    margin-right: 20px;
+  }
+
+  .login button {
+    padding: 8px 12px;       /* Add button padding */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+  }
