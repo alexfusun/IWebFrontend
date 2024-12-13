@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet'; // Import Leaflet
 import "leaflet/dist/leaflet.css"; // Import Leaflet CSS
 
-function Maps() {
+function Maps({ userEmail }) {
 
     const [location, setLocation] = useState("");
     const [latitude, setLatitude] = useState(null);
@@ -67,6 +67,28 @@ function Maps() {
         setLocationName(name);
     }
 
+    const handleSaveLocation = async () => {
+        const data = {
+            latitude: latitude,
+            longitude: longitude,
+            name: locationName,
+            user: userEmail,
+        }
+
+        try {
+            const response = await fetch(
+                `http://127.0.0.1:8000/location`,
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                }
+            );
+        } catch(error) {
+            console.error("Error:", error);
+        }
+    }
+
     const MapComponent = ({ lat, lon, name}) => {
         if (!lat || !lon) {
             return <div>Cargando mapa...</div>
@@ -91,7 +113,7 @@ function Maps() {
 
     return (
         <div>
-            <h2>Mapas</h2>
+            <h2>Añadir ubicación a mi mapa</h2>
 
             Ubicación:
                 <input 
@@ -121,6 +143,7 @@ function Maps() {
             {latitude && longitude && (
                 <div>
                     <MapComponent lat={latitude} lon={longitude} name={locationName} />
+                    <button onClick={handleSaveLocation}>Añadir</button>
                 </div>    
             )}
         </div>

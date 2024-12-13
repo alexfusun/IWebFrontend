@@ -34,6 +34,7 @@ const ImageUpload = ({ onImageUploaded }) => {
 
     return (
         <div>
+            <h2>Subir Imagen</h2>
             <input type="file" accept="image/*" onChange={handleFileChange} />
             <button onClick={handleUpload}>Subir imagen</button>
         </div>

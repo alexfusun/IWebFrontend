@@ -2,7 +2,7 @@ import { Dropbox } from 'dropbox';
 import fetch from 'cross-fetch';
 import process from 'process';
 
-const DROPBOX_ACCESS_TOKEN = process.env.REACT_APP_DROPBOX_ACCESS_TOKEN;
+let DROPBOX_ACCESS_TOKEN = process.env.REACT_APP_DROPBOX_ACCESS_TOKEN;
 
 const boundFetch = fetch.bind(window);
 
@@ -10,6 +10,18 @@ const dropbox = new Dropbox({
   accessToken: DROPBOX_ACCESS_TOKEN,
   fetch: boundFetch,
 });
+
+export const refreshToken = async () => {
+    try {
+        const response = await fetch(
+            `http://127.0.0.1:8000/dbxtoken`
+        );
+        const res = await response.json();
+        DROPBOX_ACCESS_TOKEN = res;
+    } catch (error) {
+        console.error("Error al obtener token dbx:", error);
+    }
+}
 
 export const uploadFileToDropbox = async (file) => {
   try {

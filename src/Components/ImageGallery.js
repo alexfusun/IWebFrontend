@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { listFilesInDropbox, getFileLink } from "../Dropbox/dropbox";
+import { listFilesInDropbox, getFileLink, refreshToken } from "../Dropbox/dropbox";
 
-const ImageGallery = ({ imageUploaded }) => {
+const ImageGallery = ({ imageUploaded, userEmail }) => {
     const [images, setImages] = useState([]);
 
     
@@ -29,6 +29,10 @@ const ImageGallery = ({ imageUploaded }) => {
     useEffect(() => {
         fetchImages();
     }, [imageUploaded]);
+
+    useEffect(() => {
+        refreshToken();
+    }, [userEmail]);
 
     return (
         <div>
