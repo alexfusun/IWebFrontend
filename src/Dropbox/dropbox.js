@@ -2,8 +2,6 @@ import { Dropbox } from 'dropbox';
 import fetch from 'cross-fetch';
 import process from 'process';
 
-require('dotenv').config();
-
 const DROPBOX_ACCESS_TOKEN = process.env.REACT_APP_DROPBOX_ACCESS_TOKEN;
 
 const boundFetch = fetch.bind(window);
