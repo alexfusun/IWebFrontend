@@ -32,9 +32,6 @@ function Home({ userEmail, userName }) {
     }, [fetchMaps])
 
     const MapComponent = ({ loc }) => {
-        if (!loc) {
-            return <div>Cargando mapa...</div>
-        }
 
 
         return (
